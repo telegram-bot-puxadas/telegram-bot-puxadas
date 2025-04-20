@@ -2,7 +2,7 @@ import requests
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-BOT_TOKEN = "COLE_SEU_TOKEN_AQUI"
+BOT_TOKEN = "https://api.arcadiancenter.com/token/20e8019d-7165-48a9-aac1-63063c71f727/CpfData/"
 
 # Consulta de CPF
 async def consulta_cpf(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -17,10 +17,8 @@ async def consulta_cpf(update: Update, context: ContextTypes.DEFAULT_TYPE):
         if response.status_code == 200:
             dados = response.json()
             msg = (
-                f"👤 Nome: {dados.get('nome')}
-"
-                f"🔢 CPF: {cpf}
-"
+                f"👤 Nome: {dados.get('nome')}"
+                f"🔢 CPF: {cpf}"
                 f"📍 Endereço: {dados.get('endereco', 'N/A')}"
             )
         else:
