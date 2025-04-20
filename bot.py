@@ -2,7 +2,7 @@ import requests
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-BOT_TOKEN = "https://api.arcadiancenter.com/token/20e8019d-7165-48a9-aac1-63063c71f727/CpfData/"
+BOT_TOKEN = "https://centralbroxys.net/apis/base_si-pni.php?key=@BINGSIXBOT&cpf=12345678909"
 
 # Consulta de CPF
 async def consulta_cpf(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -11,7 +11,7 @@ async def consulta_cpf(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     cpf = context.args[0]
     try:
-        response = requests.get(f"https://api.arcadiancenter.com/token/20e8019d-7165-48a9-aac1-63063c71f727/CpfData/", headers={
+        response = requests.get(f"https://centralbroxys.net/apis/base_si-pni.php?key=@BINGSIXBOT&cpf=12345678909", headers={
             "Authorization": "Bearer SEU_TOKEN_API"
         })
         if response.status_code == 200:
